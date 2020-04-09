@@ -7,8 +7,11 @@
 /[Oo]bj/
 /[Bb]uild/
 /[Bb]uilds/
+/[Dd]ebug/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
+/[Pp]ackages/
+/[Pp]rojectSettings/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
@@ -21,6 +24,7 @@
 
 # Visual Studio cache directory
 .vs/
+.vscode/
 
 # Gradle cache directory
 .gradle/
@@ -90,6 +94,8 @@ crashlytics-build.properties
 *.svd
 *.pdb
 
+/[Aa]ssets/ML-Agents*
+
 # Unity3D generated meta files
 *.pidb.meta
 
@@ -103,4 +109,3 @@ crashlytics-build.properties
 *.exe
 *.x86_64
 *.x86
-
