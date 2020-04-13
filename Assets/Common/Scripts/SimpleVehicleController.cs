@@ -10,26 +10,23 @@ public class SimpleVehicleController : MonoBehaviour
     public AxleInfo[] axleInfos;
     public WheelInfo wheelInfo;
 
-    private float steering = 0;
-    private float throttle = 0;
-    private float brake = 0;
+    private float m_steering = 0;
+    private float m_throttle = 0;
+    private float m_brake = 0;
 
     public float Steering
     {
-        get { return steering; }
-        set { steering = Mathf.Clamp(value, -1, 1); }
+        set { m_steering = Mathf.Clamp(value, -1, 1); }
     }
 
     public float Throttle
     {
-        get { return throttle; }
-        set { throttle = Mathf.Clamp(value, -1, 1); }
+        set { m_throttle = Mathf.Clamp(value, -1, 1); }
     }
 
     public float Brake
     {
-        get { return brake; }
-        set { brake = Mathf.Clamp(value, 0, 1); }
+        set { m_brake = Mathf.Clamp(value, 0, 1); }
     }
 
     void Awake()
@@ -43,25 +40,25 @@ public class SimpleVehicleController : MonoBehaviour
 
     public void FixedUpdate()
     {
-        float motor = maxMotorTorque * this.throttle;
-        float steering = maxSteeringAngle * this.steering;
-        float brake = maxBrakeTorque * this.brake;
+        float steerAngle  = maxSteeringAngle * m_steering;
+        float motorTorque = maxMotorTorque * m_throttle;
+        float brakeTorque = maxBrakeTorque * m_brake;
      
         foreach (var axleInfo in axleInfos) {
             var wcLeft = axleInfo.leftWheel.GetComponent<WheelCollider>();
             var wcRight = axleInfo.rightWheel.GetComponent<WheelCollider>();
 
             if (axleInfo.steering) {
-                wcLeft.steerAngle = steering;
-                wcRight.steerAngle = steering;
+                wcLeft.steerAngle = steerAngle;
+                wcRight.steerAngle = steerAngle;
             }
             if (axleInfo.motor) {
-                wcLeft.motorTorque = motor;
-                wcRight.motorTorque = motor;
+                wcLeft.motorTorque = motorTorque;
+                wcRight.motorTorque = motorTorque;
             }
             if (axleInfo.brake) {
-                wcLeft.brakeTorque = brake;
-                wcRight.brakeTorque = brake;
+                wcLeft.brakeTorque = brakeTorque;
+                wcRight.brakeTorque = brakeTorque;
             }
             ApplyLocalPositionToVisuals(wcLeft);
             ApplyLocalPositionToVisuals(wcRight);
@@ -94,14 +91,7 @@ public class SimpleVehicleController : MonoBehaviour
         }
 
         WheelCollider wc = wheel.AddComponent<WheelCollider>();
-        float refRadius = 1;
-        if (wheel.GetComponentInChildren<Renderer>() != null)
-        {
-            var visualWheelBounds = wheel.GetComponentInChildren<Renderer>().bounds;
-            refRadius = visualWheelBounds.extents.magnitude / 2;
-        }
-
-        wc.radius = wheelInfo.wheelScale * refRadius;
+        wc.radius = wheelInfo.wheelRadius;
         wc.suspensionDistance = wheelInfo.suspensionDistance;
 
         WheelFrictionCurve fwdFriction = new WheelFrictionCurve();
@@ -139,16 +129,18 @@ public class AxleInfo {
 [System.Serializable]
 public class WheelInfo
 {
-    public float wheelScale = 1f;
+    public float wheelRadius = 0.5f;
     public float suspensionDistance = 0.1f;
+    [Header("Suspension Spring")]
     public float suspensionSpring = 35000f;
     public float suspensionDamper = 4500f;
+    [Header("Forward Friction")]
     public float forwardExtremumSlip = 0.4f;
     public float forwardExtremumValue = 1f;
     public float forwardAsymptoteSlip = 0.8f;
     public float forwardAsymptoteValue = 0.5f;
     public float forwardStiffness = 2f;
-    [Space(10)]
+    [Header("Sideways Friction")]
     public float sidewaysExtremumSlip = 0.2f;
     public float sidewaysExtremumValue = 1f;
     public float sidewaysAsymptoteSlip = 0.8f;
