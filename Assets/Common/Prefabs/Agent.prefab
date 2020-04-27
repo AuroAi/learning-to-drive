@@ -256,11 +256,8 @@ GameObject:
   - component: {fileID: 4774107205081027579}
   - component: {fileID: 4774107205081027582}
   - component: {fileID: 4774107205081027581}
-  - component: {fileID: 4774107205081027580}
-  - component: {fileID: 4774107205081027583}
-  - component: {fileID: 4774107205081027578}
   m_Layer: 0
-  m_Name: Agent
+  m_Name: SimpleCar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -326,7 +323,7 @@ MonoBehaviour:
     steering: 0
     brake: 1
   wheelInfo:
-    wheelScale: 0.5
+    wheelRadius: 0.5
     suspensionDistance: 0.1
     suspensionSpring: 35000
     suspensionDamper: 4500
@@ -340,63 +337,6 @@ MonoBehaviour:
     sidewaysAsymptoteSlip: 0.5
     sidewaysAsymptoteValue: 0.8
     sidewaysStiffness: 1
---- !u!114 &4774107205081027580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4774107205081027577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_BrainParameters:
-    vectorObservationSize: 8
-    numStackedVectorObservations: 1
-    vectorActionSize: 03000000
-    vectorActionDescriptions: []
-    vectorActionSpaceType: 1
-  m_Model: {fileID: 0}
-  m_InferenceDevice: 0
-  m_BehaviorType: 0
-  m_BehaviorName: ReachTarget
-  TeamId: 0
-  m_UseChildSensors: 1
---- !u!114 &4774107205081027583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4774107205081027577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DecisionPeriod: 10
-  TakeActionsBetweenDecisions: 1
-  offsetStep: 0
---- !u!114 &4774107205081027578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4774107205081027577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d08304ad07a05ce9a06c643c771da2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agentParameters:
-    maxStep: 0
-  hasUpgradedFromAgentParameters: 1
-  maxStep: 2000
-  target: {fileID: 0}
-  ground: {fileID: 0}
 --- !u!1 &4774107205354223440
 GameObject:
   m_ObjectHideFlags: 0

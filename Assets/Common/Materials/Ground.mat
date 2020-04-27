@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Ground
-  m_Shader: {fileID: 15301, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 81065958954abd678818f7ac8a0c1a73, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -71,11 +71,11 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _WireSmoothness: 5
-    - _WireThickness: 200
+    - _WireSmoothness: 8
+    - _WireThickness: 500
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.16905482, g: 0.18641369, b: 0.2735849, a: 1}
+    - _BaseColor: {r: 0.16981131, g: 0.15695648, b: 0.15459237, a: 1}
     - _Color: {r: 0.3490566, g: 0.3146299, b: 0.250267, a: 0.2627451}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _WireColor: {r: 0.46858314, g: 0.68218595, b: 0.764151, a: 1}
