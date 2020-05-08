@@ -12,7 +12,7 @@ Code was developed in Unity 2019.3.4 using ML-Agents Beta 0.15.1. It is provided
 
 ## Get Started
 
-To get up and running with ML Agents, we strongly suggest you follow their [Installation](https://github.com/Unity-Technologies/ml-agents/blob/0.15.1/docs/Installation.md) and [Basic](https://github.com/Unity-Technologies/ml-agents/blob/0.15.1/docs/Basic-Guide.md) guides. We also suggest you have a look at the blog posts above to get an idea of what these environments are meant to achieve.
+Before anything else, we strongly suggest you follow the ML Agents [Installation](https://github.com/Unity-Technologies/ml-agents/blob/0.15.1/docs/Installation.md) and [Basic](https://github.com/Unity-Technologies/ml-agents/blob/0.15.1/docs/Basic-Guide.md) guides. This will help you install all the needed prerequisites and get you familiar with working with the ML-Agents Toolkit. We also suggest you have a look at the blog posts above to get an idea of what these environments are meant to achieve.
 
 
 ## Running the Examples
