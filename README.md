@@ -1,8 +1,10 @@
 # Learning To Drive
 
+![Reach Target Agent](./images/reach-target-agent.png)
+
 This is the code to accompany the Learning to Drive series of blog posts.
 
-  1. Learning to Drive (ReachTarget agent): [http://auro.ai/?p=574](blog) | [./Assets/ReachTarget](code)
+  1. Learning to Drive (ReachTarget agent): [blog](http://auro.ai/?p=574) | [code](./Assets/ReachTarget)
 
 The above code was developed in Unity 2019.3.4 using ML-Agents Beta 0.15.1. Code is provided for informational and entertainment purposes with no warrants of any kind.
 
