@@ -14,19 +14,19 @@ public class SimpleVehicleController : MonoBehaviour
     private float m_throttle = 0;
     private float m_brake = 0;
 
-    public float Steering
+    public void SetSteering(float value)
     {
-        set { m_steering = Mathf.Clamp(value, -1, 1); }
+        m_steering = Mathf.Clamp(value, -1, 1);
     }
 
-    public float Throttle
+    public void SetThrottle(float value)
     {
-        set { m_throttle = Mathf.Clamp(value, -1, 1); }
+        m_throttle = Mathf.Clamp(value, -1, 1);
     }
 
-    public float Brake
+    public void SetBrake(float value)
     {
-        set { m_brake = Mathf.Clamp(value, 0, 1); }
+        m_brake = Mathf.Clamp(value, 0, 1);
     }
 
     void Awake()
@@ -40,46 +40,49 @@ public class SimpleVehicleController : MonoBehaviour
 
     public void FixedUpdate()
     {
-        float steerAngle  = maxSteeringAngle * m_steering;
+        float steerAngle = maxSteeringAngle * m_steering;
         float motorTorque = maxMotorTorque * m_throttle;
         float brakeTorque = maxBrakeTorque * m_brake;
-     
-        foreach (var axleInfo in axleInfos) {
+
+        foreach (var axleInfo in axleInfos)
+        {
             var wcLeft = axleInfo.leftWheel.GetComponent<WheelCollider>();
             var wcRight = axleInfo.rightWheel.GetComponent<WheelCollider>();
 
-            if (axleInfo.steering) {
+            if (axleInfo.steering)
+            {
                 wcLeft.steerAngle = steerAngle;
                 wcRight.steerAngle = steerAngle;
             }
-            if (axleInfo.motor) {
+            if (axleInfo.motor)
+            {
                 wcLeft.motorTorque = motorTorque;
                 wcRight.motorTorque = motorTorque;
             }
-            if (axleInfo.brake) {
+            if (axleInfo.brake)
+            {
                 wcLeft.brakeTorque = brakeTorque;
                 wcRight.brakeTorque = brakeTorque;
             }
-            ApplyLocalPositionToVisuals(wcLeft);
-            ApplyLocalPositionToVisuals(wcRight);
+            ApplyLocalPositionToVisuals(axleInfo.leftWheel);
+            ApplyLocalPositionToVisuals(axleInfo.rightWheel);
         }
     }
 
     // finds the corresponding visual wheel
     // correctly applies the transform
-    public void ApplyLocalPositionToVisuals(WheelCollider collider)
+    public void ApplyLocalPositionToVisuals(GameObject wheel)
     {
-        if (collider.transform.childCount == 0) {
+        if (wheel.transform.GetChild(0) == null)
             return;
-        }
 
         Vector3 position;
         Quaternion rotation;
-        collider.GetWorldPose(out position, out rotation);
+        wheel.GetComponent<WheelCollider>()
+             .GetWorldPose(out position, out rotation);
 
-        Transform visualWheel = collider.transform.GetChild(0);
-        visualWheel.position = position;
-        visualWheel.rotation = rotation;
+        wheel.transform.GetChild(0).position = position;
+        wheel.transform.GetChild(0).rotation = rotation;
     }
 
     void CreateWheelCollider(GameObject wheel)
@@ -118,7 +121,8 @@ public class SimpleVehicleController : MonoBehaviour
 }
 
 [System.Serializable]
-public class AxleInfo {
+public class AxleInfo
+{
     public GameObject leftWheel;
     public GameObject rightWheel;
     public bool motor;

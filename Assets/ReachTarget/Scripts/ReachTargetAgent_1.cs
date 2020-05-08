@@ -15,10 +15,11 @@ public class ReachTargetAgent_1 : ReachTargetAgent
         // Agent velocity
         sensor.AddObservation(AgentVelocity); // vec 3
 
-        // Compute the direction from the agent to the target
-        // and the alignment of the agent's velocity with this direction
+        // The direction from the agent to the target
         Vector3 dirToTarget = (target.position - this.transform.position).normalized;
+        // The alignment of the agent's velocity with this direction
         float velocityAlignment = Vector3.Dot(dirToTarget, AgentVelocity);
+
         // Small reward for moving in the direction of the target
         AddReward(RewardScalar * velocityAlignment);
     }

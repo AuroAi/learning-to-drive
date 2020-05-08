@@ -72,9 +72,9 @@ public class ReachTargetAgent : Agent
 
     public override void OnActionReceived(float[] action)
     {
-        m_controller.Steering = action[0];
-        m_controller.Throttle = action[1];
-        m_controller.Brake = action[2];
+        m_controller.SetSteering(action[0]);
+        m_controller.SetThrottle(action[1]);
+        m_controller.SetBrake(action[2]);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -93,9 +93,9 @@ public class ReachTargetAgent : Agent
 
     void RespawnAgent()
     {
-        m_controller.Throttle = 0;
-        m_controller.Steering = 0;
-        m_controller.Brake = 1;
+        m_controller.SetThrottle(0);
+        m_controller.SetSteering(0);
+        m_controller.SetBrake(1);
         m_rbody.velocity = Vector3.zero;
         m_rbody.angularVelocity = Vector3.zero;
         this.transform.localPosition = new Vector3(0, 1f, 0);

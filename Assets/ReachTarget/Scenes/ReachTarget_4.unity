@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 1462745684}
   - component: {fileID: 1462745683}
   - component: {fileID: 1462745686}
+  - component: {fileID: 1462745687}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -310,6 +311,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1506699421}
+--- !u!114 &1462745687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462745682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c5bc02ccd2976729878cad5fb385025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxFrames: 0
+  frameRate: 30
+  record: 0
+  dataPath: ./Capture
 --- !u!1001 &1506699412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -460,7 +477,7 @@ MonoBehaviour:
     vectorActionSize: 03000000
     vectorActionDescriptions: []
     vectorActionSpaceType: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 4f4129f613f52343d8844f4243087df7, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: ReachTarget_4

@@ -23,6 +23,7 @@ default:
             strength: 1.0
             gamma: 0.99
 
+# Reach Target Brains
 ReachTarget_0:
     normalize: true
     num_epoch: 3
