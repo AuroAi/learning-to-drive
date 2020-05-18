@@ -25,8 +25,6 @@ cd ml-agents/ml-agents/ && pip install -e .
 
 Perhaps the easiest way to manage your Unity projects is to use the [Unity Hub](https://docs.unity3d.com/Manual/GettingStartedInstallingHub.html). You can add this repo as a project by simply clicking the **Add** button and selecting the root `learning-to-drive/` directory.
 
-![Unity Hub](./images/unity-hub.png)
-
 ## Running the Examples
 
 In the Assets folder, you can find the Unity Prefabs, Scenes and Scripts needed to reproduce the results in the above blog posts. For example, you can open the baseline `ReachTarget` scene discussed in the Learning to Drive article by going to the `Assets/ReachTarget/Scenes` folder in the Unity **Project** window and opening the `ReachTarget_0` scene.
