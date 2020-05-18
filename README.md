@@ -1,6 +1,6 @@
 # Learning To Drive
 
-![Reach Target Agent](./images/reach-target-agent.png)
+![Reach Target Agent](./images/reach-target-3-500w.gif)
 
 This is the code repo to accompany the Learning to Drive series of blog posts.
 
@@ -24,6 +24,8 @@ cd ml-agents/ml-agents/ && pip install -e .
 ## Opening the Project in Unity
 
 Perhaps the easiest way to manage your Unity projects is to use the [Unity Hub](https://docs.unity3d.com/Manual/GettingStartedInstallingHub.html). You can add this repo as a project by simply clicking the **Add** button and selecting the root `learning-to-drive/` directory.
+
+![Unity Hub](./images/unity-hub.png)
 
 ## Running the Examples
 
