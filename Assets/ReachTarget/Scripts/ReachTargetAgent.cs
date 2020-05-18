@@ -40,19 +40,7 @@ public class ReachTargetAgent : Agent
 
     public void FixedUpdate()
     {
-        var distanceToTarget = Vector3.Distance(
-            this.transform.position,
-            target.transform.position
-        );
-
-        // Upon reaching the target, respawn it to a random position
-        // and add reward of +1
-        if (distanceToTarget < 1)
-        {
-            m_targetReached = true;
-            AddReward(1f);
-            EndEpisode();
-        }
+        CheckDistanceToTarget();
 
         // If the car falls off the platform, end episode
         if (this.transform.localPosition.y < 0)
@@ -89,6 +77,23 @@ public class ReachTargetAgent : Agent
         action[1] = Input.GetAxis("Vertical");
         action[2] = Input.GetAxis("Jump");
         return action;
+    }
+
+    void CheckDistanceToTarget()
+    {
+        var distanceToTarget = Vector3.Distance(
+            this.transform.position,
+            target.transform.position
+        );
+
+        // Upon reaching the target, respawn it to a random position
+        // and add reward of +1
+        if (distanceToTarget < 1)
+        {
+            m_targetReached = true;
+            AddReward(1f);
+            EndEpisode();
+        }
     }
 
     void RespawnAgent()
