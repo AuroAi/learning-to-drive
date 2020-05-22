@@ -1,4 +1,4 @@
-# Learning To Drive
+# Learning to Drive - A Beginners Guide to Deep RL for Autonomous Vehicles
 
 ![Reach Target Agent](./images/reach-target-3-500w.gif)
 
